@@ -1,0 +1,139 @@
+[gd_scene load_steps=12 format=3 uid="uid://8iwbndg885e2"]
+
+[ext_resource type="Texture2D" uid="uid://b2l8j6f0l04cf" path="res://Assets/Cyberpunk Tileset #1/Cyberpunk Tileset #1/bg_lilas.jpg" id="1_0dgt5"]
+[ext_resource type="Texture2D" uid="uid://mopgslpy6gym" path="res://Assets/Cyberpunk Tileset #1/Cyberpunk Tileset #1/Jogo (6).png" id="2_1xnr2"]
+[ext_resource type="Texture2D" uid="uid://box6bga6iwk84" path="res://Assets/Cyberpunk Tileset #1/Cyberpunk Tileset #1/Jogo (2).png" id="3_1xnr2"]
+[ext_resource type="Texture2D" uid="uid://enfceii6jlyt" path="res://Assets/Cyberpunk Tileset #1/Cyberpunk Tileset #1/Jogo (7).png" id="3_gynrd"]
+[ext_resource type="FontFile" uid="uid://dy7f6lgmyvrq8" path="res://Assets/Cyberpunk Tileset #1/Cyberpunk Tileset #1/VCR_OSD_MONO_1.001.ttf" id="5_ryob0"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ryob0"]
+bg_color = Color(0.831755, 0.518296, 0.118467, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="Theme" id="Theme_gynrd"]
+Button/colors/font_color = Color(1, 1, 1, 1)
+Button/colors/font_disabled_color = Color(0.548963, 0.548962, 0.548963, 0.5)
+Button/constants/align_to_largest_stylebox = 1
+Button/fonts/font = ExtResource("5_ryob0")
+Button/styles/normal = SubResource("StyleBoxFlat_ryob0")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_74c26"]
+bg_color = Color(0.917831, 0.44513, 0.177189, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="Theme" id="Theme_ryob0"]
+Button/colors/font_color = Color(1, 1, 1, 1)
+Button/constants/align_to_largest_stylebox = 1
+Button/fonts/font = ExtResource("5_ryob0")
+Button/styles/normal = SubResource("StyleBoxFlat_74c26")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qcbqw"]
+bg_color = Color(0.831373, 0.517647, 0.117647, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="Theme" id="Theme_74c26"]
+Button/colors/font_color = Color(1, 1, 1, 1)
+Button/constants/align_to_largest_stylebox = 2
+Button/fonts/font = ExtResource("5_ryob0")
+Button/styles/normal = SubResource("StyleBoxFlat_qcbqw")
+
+[node name="TitleScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="bg" type="TextureRect" parent="."]
+layout_mode = 2
+offset_left = 3.0
+offset_top = 1.0
+offset_right = 643.0
+offset_bottom = 321.0
+texture = ExtResource("1_0dgt5")
+expand_mode = 2
+
+[node name="Ada" type="TextureRect" parent="."]
+clip_contents = true
+custom_minimum_size = Vector2(-200, -200)
+layout_direction = 2
+layout_mode = 2
+offset_left = 4.0
+offset_top = 123.0
+offset_right = 172.0
+offset_bottom = 291.0
+texture = ExtResource("2_1xnr2")
+expand_mode = 3
+
+[node name="Ada2" type="TextureRect" parent="."]
+clip_contents = true
+custom_minimum_size = Vector2(-200, -200)
+layout_direction = 2
+layout_mode = 2
+offset_left = 428.0
+offset_top = 177.0
+offset_right = 522.0
+offset_bottom = 268.0
+texture = ExtResource("3_gynrd")
+expand_mode = 3
+
+[node name="Game_logo" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(180, 0)
+layout_direction = 2
+layout_mode = 2
+offset_left = 192.0
+offset_top = -32.0
+offset_right = 429.0
+offset_bottom = 228.0
+texture = ExtResource("3_1xnr2")
+expand_mode = 5
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 251.0
+offset_top = 121.0
+offset_right = -110.0
+offset_bottom = 203.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = -171
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_right = -2
+theme_override_constants/margin_bottom = -3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_direction = 4
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+
+[node name="Jogar" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme = SubResource("Theme_gynrd")
+text = "Jogar"
+
+[node name="Opções" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme = SubResource("Theme_ryob0")
+text = "Opções"
+
+[node name="Sair" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme = SubResource("Theme_74c26")
+text = "Sair"

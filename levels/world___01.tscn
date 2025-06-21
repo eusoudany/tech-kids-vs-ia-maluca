@@ -1,0 +1,167 @@
+[gd_scene load_steps=20 format=3 uid="uid://dof1iin4b4ejp"]
+
+[ext_resource type="Texture2D" uid="uid://b2l8j6f0l04cf" path="res://Assets/Cyberpunk Tileset #1/Cyberpunk Tileset #1/bg_lilas.jpg" id="1_ncy14"]
+[ext_resource type="Texture2D" uid="uid://7e1tbqgq65dc" path="res://Assets/Cyberpunk Tileset #1/Cyberpunk Tileset #1/ChatGPT Image 7 de jun. de 2025, 14_22_30.png" id="2_ssvmy"]
+[ext_resource type="Script" uid="uid://bgcjvv5jci12f" path="res://levels/player.gd" id="3_ncy14"]
+[ext_resource type="Texture2D" uid="uid://c4avub1ibwd2x" path="res://Assets/Cyberpunk Tileset #1/Cyberpunk Tileset #1/Computer Dude Idle.png" id="4_eboqy"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_10m0m"]
+atlas = ExtResource("4_eboqy")
+region = Rect2(0, 0, 29, 35)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gtfjk"]
+atlas = ExtResource("4_eboqy")
+region = Rect2(29, 0, 29, 35)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sgqcw"]
+atlas = ExtResource("4_eboqy")
+region = Rect2(58, 0, 29, 35)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k53au"]
+atlas = ExtResource("4_eboqy")
+region = Rect2(87, 0, 29, 35)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2j4d4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_10m0m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gtfjk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sgqcw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k53au")
+}],
+"loop": true,
+"name": &"computer",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_cq24l"]
+radius = 15.0
+height = 56.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cq24l"]
+atlas = ExtResource("2_ssvmy")
+region = Rect2(0, 0, 512, 768)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ncy14"]
+atlas = ExtResource("2_ssvmy")
+region = Rect2(512, 0, 512, 768)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eboqy"]
+atlas = ExtResource("2_ssvmy")
+region = Rect2(0, 768, 512, 768)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5m5qy"]
+atlas = ExtResource("2_ssvmy")
+region = Rect2(512, 768, 512, 768)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_10m0m"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cq24l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ncy14")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eboqy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5m5qy")
+}],
+"loop": true,
+"name": &"adaa",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cq24l"]
+size = Vector2(156.938, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5m5qy"]
+size = Vector2(100, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_10m0m"]
+size = Vector2(260, 18)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ncy14"]
+radius = 15.0
+height = 44.0
+
+[node name="World - 01" type="Node2D"]
+
+[node name="BgLilas" type="Sprite2D" parent="."]
+position = Vector2(396, 189)
+scale = Vector2(1, 0.8975)
+texture = ExtResource("1_ncy14")
+
+[node name="computer" type="AnimatedSprite2D" parent="BgLilas"]
+position = Vector2(-104, 83.5654)
+scale = Vector2(1.14655, 1.0585)
+sprite_frames = SubResource("SpriteFrames_2j4d4")
+animation = &"computer"
+autoplay = "computer"
+flip_h = true
+
+[node name="Player" type="CharacterBody2D" parent="."]
+script = ExtResource("3_ncy14")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+position = Vector2(46, 278)
+scale = Vector2(1, 1)
+shape = SubResource("CapsuleShape2D_cq24l")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player"]
+position = Vector2(47, 281)
+scale = Vector2(0.0734864, 0.0686849)
+sprite_frames = SubResource("SpriteFrames_10m0m")
+animation = &"adaa"
+autoplay = "adaa"
+frame_progress = 0.316806
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(77, 321)
+shape = SubResource("RectangleShape2D_cq24l")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(278, 295)
+shape = SubResource("RectangleShape2D_cq24l")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(164, 319)
+rotation = -3.71057
+shape = SubResource("RectangleShape2D_5m5qy")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(534, 294)
+shape = SubResource("RectangleShape2D_10m0m")
+
+[node name="BG" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="BG"]
+position = Vector2(8, 5)
+
+[node name="Sprite2D" type="Sprite2D" parent="BG/ParallaxLayer"]
+
+[node name="warning_sign" type="Node2D" parent="."]
+
+[node name="texture" type="Sprite2D" parent="warning_sign"]
+position = Vector2(2, 0)
+scale = Vector2(29, 38)
+texture = ExtResource("4_eboqy")
+region_enabled = true
+
+[node name="area_sign" type="Area2D" parent="warning_sign"]
+collision_layer = 2
+
+[node name="collision" type="CollisionShape2D" parent="warning_sign/area_sign"]
+position = Vector2(288, 259)
+shape = SubResource("CapsuleShape2D_ncy14")
